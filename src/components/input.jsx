@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 
 const Input = () => {
-  const [searchValue, setsearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const handleChange = (e) => {
     console.log(e.target.value);
-    setsearchValue(e.target.value);
+    setSearchValue(e.target.value);
   };
   return (
-    <div>
+    <div className=" flex flex-row  justify-center gap-4 py-10">
       <input
-        className="border border-gray-400"
+        className="border border-gray-400 "
         type="text"
         onChange={handleChange}
       />
-      <p>searchValue:{handleChange}</p>
+      <p className="text-xl flex-row">searchValue:{searchValue}</p>
     </div>
   );
 };
