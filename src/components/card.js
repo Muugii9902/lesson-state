@@ -1,11 +1,5 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import Input from "@/components/input";
-import Users from "@/components/card";
-import UserCard from "@/components/user-card";
-import { useState } from "react";
+import UserCard from "./user-card";
 
-const inter = Inter({ subsets: ["latin"] });
 const profiles = [
   {
     id: 1,
@@ -59,29 +53,8 @@ const profiles = [
   },
 ];
 
-export default function Home() {
-  const [searchValue, setSearchValue] = useState("");
-  const [users, setUsers] = useState(profiles);
-
-  const handleChange = (text) => {
-    setSearchValue(text);
-
-    const finder = profiles.filter((user) =>
-      user.firstName.toLowerCase().includes(text.toLowerCase())
-    );
-
-    setUsers(finder);
-  };
-
-  return (
-    <main>
-      <h1 className="text-5xl flex justify-center">UserFind Applocation</h1>
-      <Input handleChange={handleChange} />
-      <p className="flex justify-center">Search value : {searchValue}</p>
-      {users?.map((user) => {
-        return <UserCard userImg={user.imageUrl} firstName={user.firstName} />;
-      })}
-      {!profiles && <p>hooson</p>}
-    </main>
-  );
+{
+  profiles.map((user) => (
+    <UserCard userImg={user.imageUrl} firstName={user.firstName} />
+  ));
 }
