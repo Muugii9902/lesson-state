@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Input = ({ handleChange }) => {
-  const [searchValue, setSearchValue] = useState("");
+  // const [searchValue, setSearchValue] = useState("");
   const changeValue = (e) => {
     handleChange(e.target.value);
   };
@@ -12,8 +12,8 @@ const Input = ({ handleChange }) => {
         type="text"
         onChange={changeValue}
       />
-      <p className="text-xl flex-row">searchValue:{searchValue}</p>
-      <button>Clear</button>
+      {/* <p className="text-xl flex-row">searchValue:{searchValue}</p>
+      <button>Clear</button> */}
     </div>
   );
 };

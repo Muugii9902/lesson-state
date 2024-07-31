@@ -72,16 +72,52 @@ export default function Home() {
 
     setUsers(finder);
   };
+  const handleDelete = (index) => {
+    // console.log("id", id);
+    // const deleted = profiles.splice(4, 1);
+    // console.log(deleted);
+
+    // splice() ашиглан элементийг indexToDelete-ээс нэгээр устгах
+    // let deleted =
+    setUsers(profiles.splice(index, 1));
+    // setUsers(deleted);
+    console.log("index", index, users); // Гаралт: [1, 2, 4, 5]
+  };
 
   return (
-    <main>
+    <main className="flex flex-col items-center">
       <h1 className="text-5xl flex justify-center">UserFind Applocation</h1>
-      <Input handleChange={handleChange} />
-      <p className="flex justify-center">Search value : {searchValue}</p>
-      {users?.map((user) => {
-        return <UserCard userImg={user.imageUrl} firstName={user.firstName} />;
-      })}
-      {!profiles && <p>hooson</p>}
+      <div className="flex flex-col gap-5 mt-6">
+        <Input handleChange={handleChange} />
+        <p className="flex justify-center">Search value : {searchValue}</p>
+        <button
+          className="border rounded-lg bg-slate-400"
+          onClick={() => {
+            setUsers(null);
+          }}
+        >
+          Clear
+        </button>
+        <button
+          className="border rounded-lg bg-slate-400"
+          onClick={() => {
+            setUsers(profiles);
+          }}
+        >
+          View
+        </button>
+        {users?.map((user, index) => {
+          return (
+            <UserCard
+              userImg={user.imageUrl}
+              firstName={user.firstName}
+              handleDelete={handleDelete}
+              index={index}
+            />
+          );
+        })}
+        {!users && <p>hooson</p>}
+      </div>
     </main>
   );
 }
