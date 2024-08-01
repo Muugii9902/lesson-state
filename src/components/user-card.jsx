@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const UserCard = ({ userImg, firstName, id, handleDelete, index }) => {
+const UserCard = ({ userImg, firstName, id, handleDelete }) => {
   return (
     <div className="p-5 flex gap-4 items-center">
       <div className="flex gap-5 items-center">
@@ -9,7 +9,7 @@ const UserCard = ({ userImg, firstName, id, handleDelete, index }) => {
         <button
           className="border rounded-lg bg-red-600 p-2"
           onClick={() => {
-            handleDelete(index, id);
+            handleDelete(id);
           }}
         >
           clear

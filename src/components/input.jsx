@@ -8,7 +8,7 @@ const Input = ({ handleChange }) => {
   return (
     <div className=" flex flex-row  justify-center gap-4 py-10">
       <input
-        className="border border-gray-400 "
+        className="border border-gray-400 rounded-md w-60 h-10 "
         type="text"
         onChange={changeValue}
       />

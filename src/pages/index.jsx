@@ -72,16 +72,10 @@ export default function Home() {
 
     setUsers(finder);
   };
-  const handleDelete = (index) => {
-    // console.log("id", id);
-    // const deleted = profiles.splice(4, 1);
-    // console.log(deleted);
-
-    // splice() ашиглан элементийг indexToDelete-ээс нэгээр устгах
-    // let deleted =
-    setUsers(profiles.splice(index, 1));
-    // setUsers(deleted);
-    console.log("index", index, users); // Гаралт: [1, 2, 4, 5]
+  const handleDelete = (id) => {
+    const deleted = users.filter((user) => user.id !== id);
+    console.log("id", id);
+    setUsers(deleted);
   };
 
   return (
@@ -112,7 +106,7 @@ export default function Home() {
               userImg={user.imageUrl}
               firstName={user.firstName}
               handleDelete={handleDelete}
-              index={index}
+              id={user.id}
             />
           );
         })}
